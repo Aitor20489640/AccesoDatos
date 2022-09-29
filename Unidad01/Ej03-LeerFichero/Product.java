@@ -7,6 +7,12 @@ public class Product implements Comparable<Product> {
     private int unitsInStock;
 
     public Product(int id, String name, int supplier, int category, double unitPrice, int unitsInStock) {
+        this.id = id;
+        this.name = name;
+        this.supplier = supplier;
+        this.category = category;
+        this.unitPrice = unitPrice;
+        this.unitsInStock = unitsInStock;
     }
 
     public int getId() {
@@ -80,7 +86,4 @@ public class Product implements Comparable<Product> {
             return 0;
     }
 
-    public Product createProduct() {
-        return new Product(id, name, supplier, category, unitPrice, unitsInStock);
-    }
 }
