@@ -1,14 +1,16 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Path csv = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej03-LeerFichero/", "Ej03-LeerFichero.csv");
+        Path csv = Path.of("G:/Dam2/GitHub/AccesoDatos/Unidad01/Ej03-LeerFichero/", "Ej03-LeerFichero.csv");
         List<Product> listaProducts = null;
         int menu;
 
@@ -37,6 +39,11 @@ public class Main {
                 case 1 -> mostrarProductos(listaProducts);
                 case 2 -> mostrarNombres(listaProducts);
                 case 3 -> mostrarNombresMenos10Stock(listaProducts);
+                case 4 -> mostrarNombresMas10StockDescendente(listaProducts);
+                case 5 -> mostrarNumeroProdGroupByProveedor(listaProducts);
+                case 6 -> mostrarProdMasCaro(listaProducts);
+                case 7 -> mostrarAvgStockStored(listaProducts);
+                default -> System.out.println("No esta disponible esta opción.");
             }
 
         }while(menu != 0);
@@ -71,6 +78,36 @@ public class Main {
 
     public static void mostrarNombresMenos10Stock(List<Product> lista) {
 
-        lista.stream().filter(p -> p.getUnitsInStock() < 10).forEach(System.out::println);
+        List<Product> productList = lista.stream().filter(p -> p.getUnitsInStock() < 10).toList();
+
+        for (Product prod : productList) {
+            System.out.println(prod.getName());
+        }
+        System.out.println();
+    }
+
+    public static void mostrarNombresMas10StockDescendente(List<Product> lista) {
+
+        List<Product> productList = lista.stream().filter(p -> p.getUnitsInStock() > 10).sorted(Comparator.comparingInt(Product::getUnitsInStock)).toList();
+
+        for (Product prod : productList) {
+            System.out.println(prod.getName());
+        }
+        System.out.println();
+    }
+
+    public static void mostrarNumeroProdGroupByProveedor(List<Product> lista) {
+        String suppliers = lista.stream().collect(Collectors.groupingBy(p -> p.getSupplier(), Collectors.counting())).toString();
+
+        System.out.println(suppliers);
+        System.out.println();
+    }
+
+    public static void mostrarProdMasCaro(List<Product> lista) {
+        System.out.println(lista.stream().max(Comparator.comparingDouble(Product::getUnitPrice)).get());
+    }
+
+    public static void mostrarAvgStockStored(List<Product> lista) {
+        System.out.println(lista.stream().mapToInt(Product::getUnitsInStock).average().getAsDouble());
     }
 }
