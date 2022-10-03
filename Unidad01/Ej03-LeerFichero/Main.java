@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Path csv = Path.of("G:/Dam2/GitHub/AccesoDatos/Unidad01/Ej03-LeerFichero/", "Ej03-LeerFichero.csv");
+        Path csv = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej03-LeerFichero/", "Ej03-LeerFichero.csv");
         List<Product> listaProducts = null;
         int menu;
 
@@ -97,9 +97,8 @@ public class Main {
     }
 
     public static void mostrarNumeroProdGroupByProveedor(List<Product> lista) {
-        String suppliers = lista.stream().collect(Collectors.groupingBy(p -> p.getSupplier(), Collectors.counting())).toString();
 
-        System.out.println(suppliers);
+        System.out.println(lista.stream().collect(Collectors.groupingBy(p -> p.getSupplier(), Collectors.counting())));
         System.out.println();
     }
 
