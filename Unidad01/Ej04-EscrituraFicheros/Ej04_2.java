@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class Ej02 {
+public class Ej04_2 {
     public static void imprimirFichero(Path rutaFichero) {
         try (Stream<String> lineas = Files.lines(rutaFichero)) {
             lineas.forEach(System.out::println);

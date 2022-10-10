@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Ej04 {
+public class Ej04_4 {
     public static void main(String[] args) {
 
         Product prod = new Product(78, "name", 1, 1, 10, 20);
@@ -16,7 +16,7 @@ public class Ej04 {
         prod.writeFile(ruta);
 
         try (Stream<String> lineas = Files.lines(rutaCsv).skip(1)) {
-            listaProducts = lineas.map(Ej04::crearProduct).toList();
+            listaProducts = lineas.map(Ej04_4::crearProduct).toList();
         } catch (IOException ex) {
             ex.printStackTrace();
         }

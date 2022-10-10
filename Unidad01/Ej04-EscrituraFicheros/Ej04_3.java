@@ -1,12 +1,15 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class Ej01 {
+public class Ej04_3 {
     public static void imprimirFichero(Path rutaFichero) {
         try (Stream<String> lineas = Files.lines(rutaFichero)) {
             lineas.forEach(System.out::println);
@@ -14,9 +17,10 @@ public class Ej01 {
             ex.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Path ruta = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej04-EscrituraFicheros", "frases.txt");
+        Path ruta = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej04-EscrituraFicheros", "anotaciones.txt");
         List<String> stringList = new ArrayList<>();
         String linea;
 
@@ -24,13 +28,19 @@ public class Ej01 {
         do {
             linea = sc.nextLine();
             if (!linea.equals("")) {
-                stringList.add(linea);
+                stringList.add(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")) + " - " + linea);
             }
 
         }while(!linea.equals(""));
 
         try {
-            Files.write(ruta, String.join("\n", stringList).getBytes());
+            if (!Files.exists(ruta))
+                Files.write(ruta, String.join("\n", stringList).getBytes());
+            else {
+                Files.writeString(ruta, "\n", StandardOpenOption.APPEND);
+                Files.write(ruta, String.join("\n", stringList).getBytes(), StandardOpenOption.APPEND);
+            }
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
