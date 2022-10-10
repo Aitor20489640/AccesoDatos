@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Main {
+public class Ej03 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Path csv = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej03-LeerFichero/", "Ej03-LeerFichero.csv");
@@ -15,7 +15,7 @@ public class Main {
         int menu;
 
         try (Stream<String> lineas = Files.lines(csv).skip(1)) {
-            listaProducts = lineas.map(Main::crearProduct).toList();
+            listaProducts = lineas.map(Ej03::crearProduct).toList();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
