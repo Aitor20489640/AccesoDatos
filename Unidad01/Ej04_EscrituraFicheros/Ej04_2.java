@@ -1,15 +1,15 @@
+package Ej04_EscrituraFicheros;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class Ej04_3 {
+public class Ej04_2 {
     public static void imprimirFichero(Path rutaFichero) {
         try (Stream<String> lineas = Files.lines(rutaFichero)) {
             lineas.forEach(System.out::println);
@@ -17,7 +17,6 @@ public class Ej04_3 {
             ex.printStackTrace();
         }
     }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Path ruta = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej04-EscrituraFicheros", "anotaciones.txt");
@@ -28,7 +27,7 @@ public class Ej04_3 {
         do {
             linea = sc.nextLine();
             if (!linea.equals("")) {
-                stringList.add(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")) + " - " + linea);
+                stringList.add(linea);
             }
 
         }while(!linea.equals(""));

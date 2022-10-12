@@ -1,3 +1,5 @@
+package Ej04_EscrituraFicheros;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,7 +18,7 @@ public class Ej04_1 {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Path ruta = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej04-EscrituraFicheros", "frases.txt");
+        Path ruta = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej04-EscrituraFicheros", "Ej04_EscrituraFicheros/frases.txt");
         List<String> stringList = new ArrayList<>();
         String linea;
 

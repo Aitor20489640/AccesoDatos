@@ -1,3 +1,5 @@
+package Ej03_LeerFichero;
+
 public class Product implements Comparable<Product> {
     private int id;
     private String name;

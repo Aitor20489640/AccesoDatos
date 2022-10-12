@@ -1,3 +1,5 @@
+package Ej05_SerializacionObj;
+
 import java.io.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -7,7 +9,7 @@ import java.util.Scanner;
 
 public class Ej05_3 {
     public static void main(String[] args) {
-        Path nombreFichero = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej05-SerializacionObj/", "personas.dat");
+        Path nombreFichero = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej05-SerializacionObj/", "Ej05_SerializacionObj/personas.dat");
         List<Persona> agenda = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         int op = 0;

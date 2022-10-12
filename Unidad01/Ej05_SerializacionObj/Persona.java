@@ -1,3 +1,5 @@
+package Ej05_SerializacionObj;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;

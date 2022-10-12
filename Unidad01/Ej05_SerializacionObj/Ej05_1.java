@@ -1,3 +1,5 @@
+package Ej05_SerializacionObj;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -7,7 +9,7 @@ import java.util.List;
 
 public class Ej05_1 {
     public static void main(String[] args) {
-        Path nombreFichero = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej05-SerializacionObj/", "personas.dat");
+        Path nombreFichero = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej05-SerializacionObj/", "Ej05_SerializacionObj/personas.dat");
         List<Persona> agenda = new ArrayList<>();
         try (FileOutputStream fos = new FileOutputStream(nombreFichero.toFile());
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {

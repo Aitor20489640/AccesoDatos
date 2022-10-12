@@ -1,3 +1,5 @@
+package Ej03_LeerFichero;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +12,7 @@ import java.util.stream.Stream;
 public class Ej03 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Path csv = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej03-LeerFichero/", "Ej03-LeerFichero.csv");
+        Path csv = Path.of("/media/aitgal/WRXelement/Dam2/GitHub/AccesoDatos/Unidad01/Ej03-LeerFichero/", "Ej03_LeerFichero/Ej03-LeerFichero.csv");
         List<Product> listaProducts = null;
         int menu;
 
