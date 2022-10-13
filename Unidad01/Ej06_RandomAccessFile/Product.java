@@ -169,17 +169,23 @@ public class Product implements Comparable<Product> {
      * @return Devuelve la posición del objeto con el mismo nombre en el archivo (Devolverá -1 si el objeto no se encuentra)
      */
     public long seekPositionProduct(String ruta) {
-        long pos = -1;
+        long pos = 0;
         String cadena;
+        String[] atributos;
 
         try (RandomAccessFile fichero = new RandomAccessFile(ruta, "rw")) {
-            cadena = fichero.readLine();
-            while (cadena != null) {
-                if (cadena.contains(this.getName())) {
-                    pos = fichero.getFilePointer();
-                }
+
+            do {
+                pos = fichero.getFilePointer();
                 cadena = fichero.readLine();
-            }
+                if (cadena != null) {
+                    atributos = cadena.split(",");
+                    if (this.getName().equals(atributos[1])) {
+                        return pos;
+                    }
+                }
+
+            } while (cadena != null);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
