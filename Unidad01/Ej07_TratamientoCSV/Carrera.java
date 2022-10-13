@@ -105,20 +105,5 @@ public abstract class Carrera {
         return DQ;
     }
 
-    @Override
-    public String toString() {
-        return "Carrera{" +
-                "track='" + track + '\'' +
-                ", position=" + position +
-                ", no=" + no +
-                ", driver='" + driver + '\'' +
-                ", team='" + team + '\'' +
-                ", startingGrid=" + startingGrid +
-                ", laps=" + laps +
-                ", time='" + time + '\'' +
-                ", points=" + points +
-                '}';
-    }
-
     public abstract Carrera crearCarrera(String[] linea);
 }

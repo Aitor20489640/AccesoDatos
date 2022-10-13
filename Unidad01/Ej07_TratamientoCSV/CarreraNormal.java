@@ -31,7 +31,18 @@ public class CarreraNormal extends Carrera{
         return "CarreraNormal{" +
                 "extraPoint=" + extraPoint +
                 ", fastestLap='" + fastestLap + '\'' +
-                "} " + super.toString();
+                ", NC=" + NC +
+                ", DQ=" + DQ +
+                ", track='" + track + '\'' +
+                ", position=" + position +
+                ", no=" + no +
+                ", driver='" + driver + '\'' +
+                ", team='" + team + '\'' +
+                ", startingGrid=" + startingGrid +
+                ", laps=" + laps +
+                ", time='" + time + '\'' +
+                ", points=" + points +
+                '}';
     }
 
     @Override
