@@ -41,4 +41,4 @@ responder las siguientes preguntas y mostrar estadísticas relacionadas con el c
     • ¿Qué piloto ha hecho más vueltas rápidas en carrera? ¿Y qué equipo?
     • ¿Qué pilotos han sufrido más abandonos, ya sea en carrera o que no han podido participar?
     • ¿Cómo ha sido el cara a cara en clasificación y en carrera de los pilotos de la misma escudería?
-Para comprobar tus resultados, puedes consultar esta información en <a>motor.es</a> y en <a>soymotor.com</a>.
+Para comprobar tus resultados, puedes consultar esta información en <a href="https://www.motor.es"> motor.es</a> y en <a href="https://www.soymotor.com">soymotor.com</a>.
