@@ -1,20 +1,20 @@
 package Ej07_TratamientoCSV;
 
 public class CarreraNormal extends Carrera{
-    private int extraPoint;
+    private boolean extraPoint;
     private String fastestLap;
 
-    public CarreraNormal(String track, int position, int no, String driver, String team, int startingGrid, int laps, String time, int points, int extraPoint, String fastestLap) {
+    public CarreraNormal(String track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points, boolean extraPoint, String fastestLap) {
         super(track, position, no, driver, team, startingGrid, laps, time, points);
         this.extraPoint = extraPoint;
         this.fastestLap = fastestLap;
     }
 
-    public int getExtraPoint() {
+    public boolean getExtraPoint() {
         return extraPoint;
     }
 
-    public void setExtraPoint(int extraPoint) {
+    public void setExtraPoint(boolean extraPoint) {
         this.extraPoint = extraPoint;
     }
 
@@ -29,11 +29,7 @@ public class CarreraNormal extends Carrera{
     @Override
     public String toString() {
         return "CarreraNormal{" +
-                "extraPoint=" + extraPoint +
-                ", fastestLap='" + fastestLap + '\'' +
-                ", NC=" + NC +
-                ", DQ=" + DQ +
-                ", track='" + track + '\'' +
+                "track='" + track + '\'' +
                 ", position=" + position +
                 ", no=" + no +
                 ", driver='" + driver + '\'' +
@@ -42,12 +38,31 @@ public class CarreraNormal extends Carrera{
                 ", laps=" + laps +
                 ", time='" + time + '\'' +
                 ", points=" + points +
+                ", extraPoint=" + extraPoint + '\'' +
+                ", fastestLap='" + fastestLap +
                 '}';
     }
 
-    @Override
-    public Carrera crearCarrera(String[] linea) {
 
-        return null;
+    public static Carrera crearCarrera(String line) {
+        String[] linea = line.split(",");
+        int pos;
+        if (linea[1].equals("NC")) pos = Carrera.NC;
+        else if (linea[1].equals("DQ")) pos = Carrera.DQ;
+        else pos = Integer.parseInt(linea[1]);
+
+        return new CarreraNormal(
+                linea[0],
+                pos,
+                Integer.parseInt(linea[2]),
+                linea[3],
+                linea[4],
+                Integer.parseInt(linea[5]),
+                Integer.parseInt(linea[6]),
+                linea[7],
+                Double.parseDouble(linea[8]),
+                (linea[9].equals("Yes")),
+                linea[10]
+        );
     }
 }

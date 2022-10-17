@@ -1,19 +1,20 @@
 package Ej07_TratamientoCSV;
 
-public abstract class Carrera {
-    protected final int NC = -1;//Non-classified finish
-    protected final int DQ = 0;//Driver disqualified
+public class Carrera {
+    protected static final int NC = -1;//Non-classified finish
+    protected static final int DQ = 0;//Driver disqualified
     protected String track;
     protected int position;
+
     protected int no;
     protected String driver;
     protected String team;
     protected int startingGrid;
     protected int laps;
     protected String time;
-    protected int points;
+    protected double points;
 
-    public Carrera(String track, int position, int no, String driver, String team, int startingGrid, int laps, String time, int points) {
+    public Carrera(String track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points) {
         this.track = track;
         this.position = position;
         this.no = no;
@@ -89,11 +90,11 @@ public abstract class Carrera {
         this.time = time;
     }
 
-    public int getPoints() {
+    public double getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(double points) {
         this.points = points;
     }
 
@@ -104,6 +105,4 @@ public abstract class Carrera {
     public int getDQ() {
         return DQ;
     }
-
-    public abstract Carrera crearCarrera(String[] linea);
 }
