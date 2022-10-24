@@ -3,8 +3,7 @@ package Ej07_TratamientoCSV;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -133,20 +132,25 @@ public class Ej07 {
 
         System.out.println("-".repeat(15)+"Piloto con mas Vueltas Rapidas"+"-".repeat(15));
 
+        System.out.println("TO-DO");
 
+        System.out.println("-".repeat(15)+"Piloto con mas Abandonos"+"-".repeat(15));
 
+        raceResults.stream().filter(d -> d.getPosition() == Carrera.NC)
+                .collect(Collectors.groupingBy(Carrera::getDriver, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .map(d -> new Driver(d.getKey(), d.getValue())).toList()
+                .stream().sorted((d1, d2) -> Double.compare(d2.value, d1.value)).limit(1).toList()
+                .forEach(System.out::println);
 
+        System.out.println("-".repeat(15)+"Cara a Cara en clasificación"+"-".repeat(15));
 
+        System.out.println("TO-DO");
 
+        System.out.println("-".repeat(15)+"Cara a Cara en carrera"+"-".repeat(15));
 
-
-
-
-
-
-
-
-
+        System.out.println("TO-DO");
 
     }
 
