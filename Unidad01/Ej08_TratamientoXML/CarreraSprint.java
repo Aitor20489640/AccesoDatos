@@ -33,7 +33,7 @@ public class CarreraSprint extends Carrera {
         else pos = Integer.parseInt(linea[1]);
         Circuito circuito = null;
         for (Circuito circuito1 : listCircuito) {
-            if (linea[0].equals(circuito1.getCountry())){
+            if (linea[0].equals(circuito1.getGpName())){
                 circuito = circuito1;
             }
         }
