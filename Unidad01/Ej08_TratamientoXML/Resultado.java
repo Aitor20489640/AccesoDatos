@@ -1,9 +1,9 @@
-package Ej07_TratamientoCSV;
+package Ej08_TratamientoXML;
 
-public class Carrera {
+public class Resultado {
     protected static final int NC = -1;//Non-classified finish
     protected static final int DQ = 0;//Driver disqualified
-    protected String track;
+    protected Carrera track;
     protected int position;
 
     protected int no;
@@ -14,7 +14,7 @@ public class Carrera {
     protected String time;
     protected double points;
 
-    public Carrera(String track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points) {
+    public Resultado(Carrera track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points) {
         this.track = track;
         this.position = position;
         this.no = no;
@@ -26,11 +26,11 @@ public class Carrera {
         this.points = points;
     }
 
-    public String getTrack() {
+    public Carrera getTrack() {
         return track;
     }
 
-    public void setTrack(String track) {
+    public void setTrack(Carrera track) {
         this.track = track;
     }
 

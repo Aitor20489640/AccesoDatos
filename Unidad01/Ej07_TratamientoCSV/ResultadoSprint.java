@@ -1,10 +1,8 @@
-package Ej08_TratamientoXML;
+package Ej07_TratamientoCSV;
 
-import java.util.List;
+public class ResultadoSprint extends Resultado {
 
-public class CarreraSprint extends Carrera {
-
-    public CarreraSprint(Circuito track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points) {
+    public ResultadoSprint(String track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points) {
         super(track, position, no, driver, team, startingGrid, laps, time, points);
     }
 
@@ -25,22 +23,14 @@ public class CarreraSprint extends Carrera {
 
 
 
-    public static Carrera crearCarrera(String line, List<Circuito> listCircuito) {
+    public static Resultado crearCarrera(String line) {
         String[] linea = line.split(",");
         int pos;
-        if (linea[1].equals("NC")) pos = Carrera.NC;
-        else if (linea[1].equals("DQ")) pos = Carrera.DQ;
+        if (linea[1].equals("NC")) pos = Resultado.NC;
+        else if (linea[1].equals("DQ")) pos = Resultado.DQ;
         else pos = Integer.parseInt(linea[1]);
-        Circuito circuito = null;
-        for (Circuito circuito1 : listCircuito) {
-            if (linea[0].equals(circuito1.getGpName())){
-                circuito = circuito1;
-            }
-        }
-
-
-        return new CarreraSprint(
-                circuito,
+        return new ResultadoSprint(
+                linea[0],
                 pos,
                 Integer.parseInt(linea[2]),
                 linea[3],

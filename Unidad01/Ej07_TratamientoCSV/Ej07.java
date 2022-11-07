@@ -10,20 +10,20 @@ import java.util.stream.Stream;
 
 public class Ej07 {
     public static void main(String[] args) {
-        List<CarreraNormal> raceResults = new ArrayList<>();
-        List<CarreraSprint> sprintResults = new ArrayList<>();
-        ArrayList<Carrera> allRacesResults = new ArrayList<>();
+        List<ResultadoNormal> raceResults = new ArrayList<>();
+        List<ResultadoSprint> sprintResults = new ArrayList<>();
+        ArrayList<Resultado> allRacesResults = new ArrayList<>();
         Path pathRace = Path.of("Unidad01/Ej07_TratamientoCSV/formula1_2021season_raceResults.csv");
         Path pathSprint = Path.of("Unidad01/Ej07_TratamientoCSV/formula1_2021season_sprintQualifyingResults.csv");
 
         try (Stream<String> lineas = Files.lines(pathRace).skip(1)){
-            raceResults = lineas.map(line -> (CarreraNormal) CarreraNormal.crearCarrera(line)).toList();
+            raceResults = lineas.map(line -> (ResultadoNormal) ResultadoNormal.crearCarrera(line)).toList();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
         try (Stream<String> lineas = Files.lines(pathSprint).skip(1)){
-            sprintResults = lineas.map(line -> (CarreraSprint) CarreraSprint.crearCarrera(line)).toList();
+            sprintResults = lineas.map(line -> (ResultadoSprint) ResultadoSprint.crearCarrera(line)).toList();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -36,7 +36,7 @@ public class Ej07 {
         allRacesResults.stream()
                 .collect(Collectors.groupingBy(
                         p -> Arrays.asList(p.getDriver()),
-                        Collectors.summingDouble(Carrera::getPoints)))
+                        Collectors.summingDouble(Resultado::getPoints)))
                 .entrySet()
                 .stream()
                 .map(e -> new Driver(e.getKey().get(0), e.getValue())).toList()
@@ -51,7 +51,7 @@ public class Ej07 {
         allRacesResults.stream()
                 .collect(Collectors.groupingBy(
                         p -> Arrays.asList(p.getTeam()),
-                        Collectors.summingDouble(Carrera::getPoints)))
+                        Collectors.summingDouble(Resultado::getPoints)))
                 .entrySet()
                 .stream()
                 .map(t -> new Driver(t.getKey().get(0), t.getValue())).toList()
@@ -63,7 +63,7 @@ public class Ej07 {
         System.out.println("-".repeat(15)+"Piloto con mas Victorias"+"-".repeat(15));
 
         raceResults.stream().filter(d -> d.getPosition() == 1)
-                .collect(Collectors.groupingBy(Carrera::getDriver, Collectors.counting()))
+                .collect(Collectors.groupingBy(Resultado::getDriver, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new Driver(d.getKey(), d.getValue())).toList()
@@ -75,7 +75,7 @@ public class Ej07 {
         System.out.println("-".repeat(15)+"Equipo con mas Victorias"+"-".repeat(15));
 
         raceResults.stream().filter(t -> t.getPosition() == 1)
-                .collect(Collectors.groupingBy(Carrera::getTeam, Collectors.counting()))
+                .collect(Collectors.groupingBy(Resultado::getTeam, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(t -> new Driver(t.getKey(), t.getValue())).toList()
@@ -88,7 +88,7 @@ public class Ej07 {
         System.out.println("-".repeat(15)+"Piloto con mas Podios"+"-".repeat(15));
 
         raceResults.stream().filter(d -> d.getPosition() >= 1 && d.getPosition() <= 3)
-                .collect(Collectors.groupingBy(Carrera::getDriver, Collectors.counting()))
+                .collect(Collectors.groupingBy(Resultado::getDriver, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new Driver(d.getKey(), d.getValue())).toList()
@@ -100,7 +100,7 @@ public class Ej07 {
         System.out.println("-".repeat(15)+"Equipo con mas Podios"+"-".repeat(15));
 
         raceResults.stream().filter(d -> d.getPosition() >= 1 && d.getPosition() <= 3)
-                .collect(Collectors.groupingBy(Carrera::getTeam, Collectors.counting()))
+                .collect(Collectors.groupingBy(Resultado::getTeam, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new Driver(d.getKey(), d.getValue())).toList()
@@ -112,7 +112,7 @@ public class Ej07 {
         System.out.println("-".repeat(15)+"Piloto con mas Poles"+"-".repeat(15));
 
         raceResults.stream().filter(d -> d.getStartingGrid() == 1)
-                .collect(Collectors.groupingBy(Carrera::getDriver, Collectors.counting()))
+                .collect(Collectors.groupingBy(Resultado::getDriver, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new Driver(d.getKey(), d.getValue())).toList()
@@ -123,7 +123,7 @@ public class Ej07 {
         System.out.println("-".repeat(15)+"Equipo con mas Poles"+"-".repeat(15));
 
         raceResults.stream().filter(d -> d.getStartingGrid() == 1)
-                .collect(Collectors.groupingBy(Carrera::getTeam, Collectors.counting()))
+                .collect(Collectors.groupingBy(Resultado::getTeam, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new Driver(d.getKey(), d.getValue())).toList()
@@ -136,8 +136,8 @@ public class Ej07 {
 
         System.out.println("-".repeat(15)+"Piloto con mas Abandonos"+"-".repeat(15));
 
-        raceResults.stream().filter(d -> d.getPosition() == Carrera.NC)
-                .collect(Collectors.groupingBy(Carrera::getDriver, Collectors.counting()))
+        raceResults.stream().filter(d -> d.getPosition() == Resultado.NC)
+                .collect(Collectors.groupingBy(Resultado::getDriver, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new Driver(d.getKey(), d.getValue())).toList()

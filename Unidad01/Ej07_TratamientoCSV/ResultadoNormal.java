@@ -1,10 +1,10 @@
 package Ej07_TratamientoCSV;
 
-public class CarreraNormal extends Carrera{
+public class ResultadoNormal extends Resultado {
     private boolean extraPoint;
     private String fastestLap;
 
-    public CarreraNormal(String track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points, boolean extraPoint, String fastestLap) {
+    public ResultadoNormal(String track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points, boolean extraPoint, String fastestLap) {
         super(track, position, no, driver, team, startingGrid, laps, time, points);
         this.extraPoint = extraPoint;
         this.fastestLap = fastestLap;
@@ -44,14 +44,14 @@ public class CarreraNormal extends Carrera{
     }
 
 
-    public static Carrera crearCarrera(String line) {
+    public static Resultado crearCarrera(String line) {
         String[] linea = line.split(",");
         int pos;
-        if (linea[1].equals("NC")) pos = Carrera.NC;
-        else if (linea[1].equals("DQ")) pos = Carrera.DQ;
+        if (linea[1].equals("NC")) pos = Resultado.NC;
+        else if (linea[1].equals("DQ")) pos = Resultado.DQ;
         else pos = Integer.parseInt(linea[1]);
 
-        return new CarreraNormal(
+        return new ResultadoNormal(
                 linea[0],
                 pos,
                 Integer.parseInt(linea[2]),

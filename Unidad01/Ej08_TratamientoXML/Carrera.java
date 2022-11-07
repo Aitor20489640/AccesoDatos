@@ -1,108 +1,214 @@
 package Ej08_TratamientoXML;
 
+import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+
+@XmlRootElement(name = "race")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Carrera {
-    protected static final int NC = -1;//Non-classified finish
-    protected static final int DQ = 0;//Driver disqualified
-    protected Circuito track;
-    protected int position;
+    @XmlAttribute(name = "round")
+    private int round;
+    @XmlElement(name = "country")
+    private String country;
+    @XmlElement(name = "city")
+    private String city;
+    @XmlElement(name = "circuitname")
+    private String circuitName;
+    @XmlElement(name = "gpname")
+    private String gpName;
+    @XmlElement(name = "racedate")
+    @XmlJavaTypeAdapter(DateAdapter.class)
+    private Date raceDate;
+    @XmlElement(name = "firstgp")
+    private int firstGp;
+    @XmlElement(name = "numberoflaps")
+    private int numLaps;
+    @XmlElement(name = "circuitlength")
+    private double circuitLength;
+    @XmlElement(name = "racedistance")
+    private double raceDistance;
+    @XmlElement(name = "laprecord")
+    private String lapRecord;
+    @XmlElement(name = "recordowner")
+    private String recordOwner;
+    @XmlElement(name = "recordyear")
+    private int recordYear;
+    @XmlElement(name = "turns")
+    private int turns;
+    @XmlElement(name = "drszones")
+    private int drsZones;
 
-    protected int no;
-    protected String driver;
-    protected String team;
-    protected int startingGrid;
-    protected int laps;
-    protected String time;
-    protected double points;
+    public Carrera() {
 
-    public Carrera(Circuito track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points) {
-        this.track = track;
-        this.position = position;
-        this.no = no;
-        this.driver = driver;
-        this.team = team;
-        this.startingGrid = startingGrid;
-        this.laps = laps;
-        this.time = time;
-        this.points = points;
     }
 
-    public Circuito getTrack() {
-        return track;
+    public Carrera(int round, String country, String city, String circuitName, String gpName, Date raceDate, int firstGp, int numLaps, double circuitLength, double raceDistance, String lapRecord, String recordOwner, int recordYear, int turns, int drsZones) {
+        this.round = round;
+        this.country = country;
+        this.city = city;
+        this.circuitName = circuitName;
+        this.gpName = gpName;
+        this.raceDate = raceDate;
+        this.firstGp = firstGp;
+        this.numLaps = numLaps;
+        this.circuitLength = circuitLength;
+        this.raceDistance = raceDistance;
+        this.lapRecord = lapRecord;
+        this.recordOwner = recordOwner;
+        this.recordYear = recordYear;
+        this.turns = turns;
+        this.drsZones = drsZones;
     }
 
-    public void setTrack(Circuito track) {
-        this.track = track;
+    public Carrera(String gpName) {
+        this.gpName = gpName;
     }
 
-    public int getPosition() {
-        return position;
+
+    public int getRound() {
+        return round;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
+    public void setRound(int round) {
+        this.round = round;
     }
 
-    public int getNo() {
-        return no;
+    public String getCountry() {
+        return country;
     }
 
-    public void setNo(int no) {
-        this.no = no;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getDriver() {
-        return driver;
+    public String getCity() {
+        return city;
     }
 
-    public void setDriver(String driver) {
-        this.driver = driver;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getTeam() {
-        return team;
+    public String getCircuitName() {
+        return circuitName;
     }
 
-    public void setTeam(String team) {
-        this.team = team;
+    public void setCircuitName(String circuitName) {
+        this.circuitName = circuitName;
     }
 
-    public int getStartingGrid() {
-        return startingGrid;
+    public String getGpName() {
+        return gpName;
     }
 
-    public void setStartingGrid(int startingGrid) {
-        this.startingGrid = startingGrid;
+    public void setGpName(String gpName) {
+        this.gpName = gpName;
     }
 
-    public int getLaps() {
-        return laps;
+    public String getRaceDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", new Locale("es", "ES"));
+        return dateFormat.format(raceDate);
     }
 
-    public void setLaps(int laps) {
-        this.laps = laps;
+    public void setRaceDate(Date raceDate) {
+        this.raceDate = raceDate;
     }
 
-    public String getTime() {
-        return time;
+    public int getFirstGp() {
+        return firstGp;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setFirstGp(int firstGp) {
+        this.firstGp = firstGp;
     }
 
-    public double getPoints() {
-        return points;
+    public int getnumLaps() {
+        return numLaps;
     }
 
-    public void setPoints(double points) {
-        this.points = points;
+    public void setnumLaps(int numLaps) {
+        this.numLaps = numLaps;
     }
 
-    public int getNC() {
-        return NC;
+    public double getCircuitLength() {
+        return circuitLength;
     }
 
-    public int getDQ() {
-        return DQ;
+    public void setCircuitLength(double circuitLength) {
+        this.circuitLength = circuitLength;
+    }
+
+    public double getRaceDistance() {
+        return raceDistance;
+    }
+
+    public void setRaceDistance(double raceDistance) {
+        this.raceDistance = raceDistance;
+    }
+
+    public String getLapRecord() {
+        return lapRecord;
+    }
+
+    public void setLapRecord(String lapRecord) {
+        this.lapRecord = lapRecord;
+    }
+
+    public String getRecordOwner() {
+        return recordOwner;
+    }
+
+    public void setRecordOwner(String recordOwner) {
+        this.recordOwner = recordOwner;
+    }
+
+    public int getRecordYear() {
+        return recordYear;
+    }
+
+    public void setRecordYear(int recordYear) {
+        this.recordYear = recordYear;
+    }
+
+    public int getTurns() {
+        return turns;
+    }
+
+    public void setTurns(int turns) {
+        this.turns = turns;
+    }
+
+    public int getDrsZones() {
+        return drsZones;
+    }
+
+    public void setDrsZones(int drsZones) {
+        this.drsZones = drsZones;
+    }
+
+    @Override
+    public String toString() {
+        return "Circuito{" +
+                "round=" + round +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", circuitName='" + circuitName + '\'' +
+                ", gpName='" + gpName + '\'' +
+                ", raceDate=" + getRaceDate() +
+                ", firstGp=" + firstGp +
+                ", numLaps=" + numLaps +
+                ", circuitLength=" + circuitLength +
+                ", raceDistance=" + raceDistance +
+                ", lapRecord='" + lapRecord + '\'' +
+                ", recordOwner='" + recordOwner + '\'' +
+                ", recordYear=" + recordYear +
+                ", turns=" + turns +
+                ", drsZones=" + drsZones +
+                '}';
     }
 }
