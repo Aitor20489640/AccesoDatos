@@ -1,0 +1,122 @@
+[
+  {
+    "team": "Mercedes",
+    "fullTeamName": "Mercedes-AMG Petronas Formula One Team",
+    "baseCity": "Brackley",
+    "baseCountry": "United Kingdom",    
+    "teamChief": "Toto Wolff",
+    "technicalChief": "Mike Elliott",
+    "chassis": "W12",
+    "powerUnit": "Mercedes",
+    "firstTeamEntry": 1970,
+    "worldChampionships": 8
+  },
+  {
+    "team": "Red Bull",
+    "fullTeamName": "Red Bull Racing",
+    "baseCity": "Milton Keynes",
+    "baseCountry": "United Kingdom", 
+    "teamChief": "Christian Horner",
+    "technicalChief": "Pierre Waché",
+    "chassis": "RB16B",
+    "powerUnit": "Honda",
+    "firstTeamEntry": 1997,
+    "worldChampionships": 4
+  },
+  {
+    "team": "Ferrari",
+    "fullTeamName": "Scuderia Ferrari",
+    "baseCity": "Maranello",
+    "baseCountry": "Italy", 
+    "teamChief": "Mattia Binotto",
+    "technicalChief": "Enrico Cardile",
+    "chassis": "SF21",
+    "powerUnit": "Ferrari",
+    "firstTeamEntry": 1950,
+    "worldChampionships": 16
+  },
+  {
+    "team": "McLaren",
+    "fullTeamName": "McLaren F1 Team",
+    "baseCity": "Woking",
+    "baseCountry": "United Kingdom", 
+    "teamChief": "Andreas Seidl",
+    "technicalChief": "James Key",
+    "chassis": "MCL35M",
+    "powerUnit": "Mercedes",
+    "firstTeamEntry": 1966,
+    "worldChampionships": 8
+  },
+  {
+    "team": "Alpine",
+    "fullTeamName": "Alpine F1 Team",
+    "baseCity": "Enstone",
+    "baseCountry": "United Kingdom", 
+    "teamChief": "Davide Brivio",
+    "technicalChief": "Pat Fry",
+    "chassis": "A521",
+    "powerUnit": "Renault",
+    "firstTeamEntry": 1986,
+    "worldChampionships": 2
+  },
+  {
+    "team": "AlphaTauri",
+    "fullTeamName": "Scuderia AlphaTauri",
+    "baseCity": "Faenza",
+    "baseCountry": "Italy", 
+    "teamChief": "Franz Tost",
+    "technicalChief": "Jody Egginton",
+    "chassis": "AT02",
+    "powerUnit": "Honda",
+    "firstTeamEntry": 1985,
+    "worldChampionships": 0
+  },
+  {
+    "team": "Aston Martin",
+    "fullTeamName": "Aston Martin Cognizant Formula One Team",
+    "baseCity": "Silverstone",
+    "baseCountry": "United Kingdom", 
+    "teamChief": "Otmar Szafnauer",
+    "technicalChief": "Andrew Green",
+    "chassis": "AMR21",
+    "powerUnit": "Mercedes",
+    "firstTeamEntry": 2018,
+    "worldChampionships": 0
+  },
+  {
+    "team": "Williams",
+    "fullTeamName": "Williams Racing",
+    "baseCity": "Grove",
+    "baseCountry": "United Kingdom", 
+    "teamChief": "Jost Capito",
+    "technicalChief": "François-Xavier Demaison",
+    "chassis": "FW43B",
+    "powerUnit": "Mercedes",
+    "firstTeamEntry": 1978,
+    "worldChampionships": 9
+  },
+  {
+    "team": "Alfa Romeo",
+    "fullTeamName": "Alfa Romeo F1 Team ORLEN",
+    "baseCity": "Hinwil",
+    "baseCountry": "Switzerland", 
+    "teamChief": "Frédéric Vasseur",
+    "technicalChief": "Jan Monchaux",
+    "chassis": "C41",
+    "powerUnit": "Ferrari",
+    "firstTeamEntry": 1993,
+    "worldChampionships": 0
+  },
+  {
+    "team": "Haas",
+    "fullTeamName": "Uralkali Haas F1 Team",
+    "baseCity": "Kannapolis",
+    "baseCountry": "United States",
+    "teamChief": "Guenther Steiner",
+    "technicalChief": "Simone Resta",
+    "chassis": "VF-21",
+    "powerUnit": "Ferrari",
+    "firstTeamEntry": 2016,
+    "worldChampionships": 0
+  }
+]

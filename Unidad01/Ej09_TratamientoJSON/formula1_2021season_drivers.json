@@ -1,0 +1,212 @@
+[
+  {
+    "driver": "Lewis Hamilton",
+    "abbreviation": "HAM",
+    "number": 44,
+    "team": "Mercedes",
+    "country": "United Kingdom",
+    "worldChampionships": 7,
+    "dateBirth": "07/01/1985",
+    "placeBirth": "Stevenage, England"
+  },
+  {
+    "driver": "Valtteri Bottas",
+    "abbreviation": "BOT",
+    "number": 77,
+    "team": "Mercedes",
+    "country": "Finland",
+    "worldChampionships": 0,
+    "dateBirth": "28/08/1989",
+    "placeBirth": "Nastola, Finland"
+  },
+  {
+    "driver": "Max Verstappen",
+    "abbreviation": "VER",
+    "number": 33,
+    "team": "Red Bull Racing",
+    "country": "Netherlands",
+    "worldChampionships": 1,
+    "dateBirth": "30/09/1997",
+    "placeBirth": "Hasselt, Belgium"
+  },
+  {
+    "driver": "Sergio Perez",
+    "abbreviation": "PER",
+    "number": 11,
+    "team": "Red Bull Racing",
+    "country": "Mexico",
+    "worldChampionships": 0,
+    "dateBirth": "26/01/1990",
+    "placeBirth": "Guadalajara, Mexico"
+  },
+  {
+    "driver": "Charles Leclerc",
+    "abbreviation": "LEC",
+    "number": 16,
+    "team": "Ferrari",
+    "country": "Monaco",
+    "worldChampionships": 0,
+    "dateBirth": "16/10/1997",
+    "placeBirth": "Monte Carlo, Monaco"
+  },
+  {
+    "driver": "Carlos Sainz",
+    "abbreviation": "SAI",
+    "number": 55,
+    "team": "Ferrari",
+    "country": "Spain",
+    "worldChampionships": 0,
+    "dateBirth": "01/09/1994",
+    "placeBirth": "Madrid, Spain"
+  },
+  {
+    "driver": "Lando Norris",
+    "abbreviation": "NOR",
+    "number": 4,
+    "team": "McLaren",
+    "country": "United Kingdom",
+    "worldChampionships": 0,
+    "dateBirth": "13/11/1999",
+    "placeBirth": "Bristol, England"
+  },
+  {
+    "driver": "Daniel Ricciardo",
+    "abbreviation": "RIC",
+    "number": 3,
+    "team": "McLaren",
+    "country": "Australia",
+    "worldChampionships": 0,
+    "dateBirth": "01/07/1989",
+    "placeBirth": "Perth, Australia"
+  },
+  {
+    "driver": "Esteban Ocon",
+    "abbreviation": "OCO",
+    "number": 31,
+    "team": "Alpine",
+    "country": "France",
+    "worldChampionships": 0,
+    "dateBirth": "17/09/1996",
+    "placeBirth": "Evreux, Normandy"
+  },
+  {
+    "driver": "Fernando Alonso",
+    "abbreviation": "ALO",
+    "number": 14,
+    "team": "Alpine",
+    "country": "Spain",
+    "worldChampionships": 2,
+    "dateBirth": "29/07/1981",
+    "placeBirth": "Oviedo, Spain"
+  },
+  {
+    "driver": "Pierre Gasly",
+    "abbreviation": "GAS",
+    "number": 10,
+    "team": "AlphaTauri",
+    "country": "France",
+    "worldChampionships": 0,
+    "dateBirth": "07/02/1996",
+    "placeBirth": "Rouen, France"
+  },
+  {
+    "driver": "Yuki Tsunoda",
+    "abbreviation": "TSU",
+    "number": 22,
+    "team": "AlphaTauri",
+    "country": "Japan",
+    "worldChampionships": 0,
+    "dateBirth": "11/05/2000",
+    "placeBirth": "Sagamihara, Japan"
+  },
+  {
+    "driver": "Lance Stroll",
+    "abbreviation": "STR",
+    "number": 18,
+    "team": "Aston Martin",
+    "country": "Canada",
+    "worldChampionships": 0,
+    "dateBirth": "29/10/1998",
+    "placeBirth": "Montreal, Canada"
+  },
+  {
+    "driver": "Sebastian Vettel",
+    "abbreviation": "VET",
+    "number": 5,
+    "team": "Aston Martin",
+    "country": "Germany",
+    "worldChampionships": 4,
+    "dateBirth": "03/07/1987",
+    "placeBirth": "Heppenheim, Germany"
+  },
+  {
+    "driver": "George Russell",
+    "abbreviation": "RUS",
+    "number": 63,
+    "team": "Williams",
+    "country": "United Kingdom",
+    "worldChampionships": 0,
+    "dateBirth": "15/02/1998",
+    "placeBirth": "King's Lynn, England"
+  },
+  {
+    "driver": "Nicholas Latifi",
+    "abbreviation": "LAT",
+    "number": 6,
+    "team": "Williams",
+    "country": "Canada",
+    "worldChampionships": 0,
+    "dateBirth": "29/06/1995",
+    "placeBirth": "Montreal, Canada"
+  },
+  {
+    "driver": "Kimi Raikkönen",
+    "abbreviation": "RAI",
+    "number": 7,
+    "team": "Alfa Romeo",
+    "country": "Finland",
+    "worldChampionships": 1,
+    "dateBirth": "17/10/1979",
+    "placeBirth": "Espoo, Finland"
+  },
+  {
+    "driver": "Antonio Giovinazzi",
+    "abbreviation": "GIO",
+    "number": 99,
+    "team": "Alfa Romeo",
+    "country": "Italy",
+    "worldChampionships": 0,
+    "dateBirth": "14/12/1993",
+    "placeBirth": "Martina France, Italy"
+  },
+  {
+    "driver": "Mick Schumacher",
+    "abbreviation": "MSC",
+    "number": 47,
+    "team": "Haas",
+    "country": "Germany",
+    "worldChampionships": 0,
+    "dateBirth": "22/03/1999",
+    "placeBirth": "Vufflens-le-Chateau, Switzerland"
+  },
+  {
+    "driver": "Nikita Mazepin",
+    "abbreviation": "MAZ",
+    "number": 9,
+    "team": "Haas",
+    "country": "RAF",
+    "worldChampionships": 0,
+    "dateBirth": "02/03/1999",
+    "placeBirth": "Moscow, Russia"
+  },
+  {
+    "driver": "Robert Kubica",
+    "abbreviation": "KUB",
+    "number": 88,
+    "team": "Alfa Romeo",
+    "country": "Poland",
+    "worldChampionships": 0,
+    "dateBirth": "07/12/1984",
+    "placeBirth": "Krakow, Poland"
+  }
+]

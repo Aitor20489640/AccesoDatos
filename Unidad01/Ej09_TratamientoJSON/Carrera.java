@@ -1,4 +1,4 @@
-package Ej08_TratamientoXML;
+package Ej09_TratamientoJSON;
 
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -10,7 +10,7 @@ import java.util.Locale;
 
 @XmlRootElement(name = "race")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Circuito {
+public class Carrera {
     @XmlAttribute(name = "round")
     private int round;
     @XmlElement(name = "country")
@@ -43,11 +43,11 @@ public class Circuito {
     @XmlElement(name = "drszones")
     private int drsZones;
 
-    public Circuito() {
+    public Carrera() {
 
     }
 
-    public Circuito(int round, String country, String city, String circuitName, String gpName, Date raceDate, int firstGp, int numLaps, double circuitLength, double raceDistance, String lapRecord, String recordOwner, int recordYear, int turns, int drsZones) {
+    public Carrera(int round, String country, String city, String circuitName, String gpName, Date raceDate, int firstGp, int numLaps, double circuitLength, double raceDistance, String lapRecord, String recordOwner, int recordYear, int turns, int drsZones) {
         this.round = round;
         this.country = country;
         this.city = city;
@@ -65,7 +65,7 @@ public class Circuito {
         this.drsZones = drsZones;
     }
 
-    public Circuito(String gpName) {
+    public Carrera(String gpName) {
         this.gpName = gpName;
     }
 
