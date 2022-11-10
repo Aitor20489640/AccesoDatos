@@ -7,14 +7,14 @@ public class Resultado {
     protected int position;
 
     protected int no;
-    protected String driver;
+    protected Driver driver;
     protected String team;
     protected int startingGrid;
     protected int laps;
     protected String time;
     protected double points;
 
-    public Resultado(Carrera track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points) {
+    public Resultado(Carrera track, int position, int no, Driver driver, String team, int startingGrid, int laps, String time, double points) {
         this.track = track;
         this.position = position;
         this.no = no;
@@ -50,11 +50,11 @@ public class Resultado {
         this.no = no;
     }
 
-    public String getDriver() {
+    public Driver getDriver() {
         return driver;
     }
 
-    public void setDriver(String driver) {
+    public void setDriver(Driver driver) {
         this.driver = driver;
     }
 

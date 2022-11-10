@@ -1,5 +1,12 @@
 package Ej09_TratamientoJSON;
 
+import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.core.exc.StreamReadException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 
@@ -19,6 +26,8 @@ public class Ej09 {
         List<ResultadoSprint> sprintResults = new ArrayList<>();
         ArrayList<Resultado> allRacesResults = new ArrayList<>();
         List<Carrera> allRaces = new ArrayList<>();
+        List<Driver> allDrivers = new ArrayList<>();
+        List<Team> allTeams = new ArrayList<>();
         Path pathRace = Path.of("Unidad01/Ej09_TratamientoJSON/formula1_2021season_raceResults.csv");
         Path pathSprint = Path.of("Unidad01/Ej09_TratamientoJSON/formula1_2021season_sprintQualifyingResults.csv");
         Path pathCircuit = Path.of("Unidad01/Ej09_TratamientoJSON/formula1_2021season_calendar.xml");
@@ -26,7 +35,24 @@ public class Ej09 {
         Path pathTeams = Path.of("Unidad01/Ej09_TratamientoJSON/formula1_2021season_teams.json");
         Carreras todosCarreras;
 
+
         //Tratamiento json
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY, true);
+            allTeams = objectMapper.readValue(pathTeams.toFile(), new TypeReference<List<Team>>(){});
+
+            SimpleModule module = new SimpleModule("CustomTeamDeserializer", new Version(1, 0, 0, null, null, null));
+            module.addDeserializer(Driver.class, new CustomTeamDeserializer(Driver.class, allTeams));
+            objectMapper.registerModule(module);
+            allDrivers = objectMapper.readValue(pathDrivers.toFile(), new TypeReference<List<Driver>>(){});
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
         //Fin del tratamiento json

@@ -10,10 +10,11 @@ public class Driver {
     private String driver;
     private String abbreviation;
     private int number;
+    //@JsonDeserialize(using = CustomTeamDeserializer.class)
     private Team team;
     private String country;
     private int worldChampionships;
-    @JsonDeserialize(using = CustomLocalDateDeserializer.class)
+    //@JsonDeserialize(using = CustomLocalDateDeserializer.class)
     private LocalDate dateBirth;
     private String placeBirth;
 

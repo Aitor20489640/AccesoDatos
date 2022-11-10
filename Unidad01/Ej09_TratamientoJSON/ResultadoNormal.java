@@ -6,7 +6,7 @@ public class ResultadoNormal extends Resultado {
     private boolean extraPoint;
     private String fastestLap;
 
-    public ResultadoNormal(Carrera track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points, boolean extraPoint, String fastestLap) {
+    public ResultadoNormal(Carrera track, int position, int no, Driver driver, String team, int startingGrid, int laps, String time, double points, boolean extraPoint, String fastestLap) {
         super(track, position, no, driver, team, startingGrid, laps, time, points);
         this.extraPoint = extraPoint;
         this.fastestLap = fastestLap;
@@ -46,7 +46,7 @@ public class ResultadoNormal extends Resultado {
     }
 
 
-    public static Resultado crearCarrera(String line, List<Carrera> listCarrera) {
+    public static Resultado crearCarrera(String line, List<Carrera> listCarrera, List<Driver> driverList, List<Team> teamList) {
         String[] linea = line.split(",");
         int pos;
         if (linea[1].equals("NC")) pos = Resultado.NC;

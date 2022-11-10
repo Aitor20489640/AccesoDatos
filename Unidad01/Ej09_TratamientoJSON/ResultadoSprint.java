@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ResultadoSprint extends Resultado {
 
-    public ResultadoSprint(Carrera track, int position, int no, String driver, String team, int startingGrid, int laps, String time, double points) {
+    public ResultadoSprint(Carrera track, int position, int no, Driver driver, String team, int startingGrid, int laps, String time, double points) {
         super(track, position, no, driver, team, startingGrid, laps, time, points);
     }
 
