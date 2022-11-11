@@ -46,16 +46,22 @@ public class ResultadoNormal extends Resultado {
     }
 
 
-    public static Resultado crearCarrera(String line, List<Carrera> listCarrera, List<Driver> driverList, List<Team> teamList) {
+    public static Resultado crearCarrera(String line, List<Carrera> listCarrera, List<Driver> driverList) {
         String[] linea = line.split(",");
         int pos;
         if (linea[1].equals("NC")) pos = Resultado.NC;
         else if (linea[1].equals("DQ")) pos = Resultado.DQ;
         else pos = Integer.parseInt(linea[1]);
         Carrera carrera = null;
+        Driver corredor = null;
         for (Carrera carrera1 : listCarrera) {
             if (linea[0].equals(carrera1.getGpName())){
                 carrera = carrera1;
+            }
+        }
+        for (Driver driverF : driverList) {
+            if (linea[3].equals(driverF.getDriver())){
+                corredor = driverF;
             }
         }
 
@@ -64,7 +70,7 @@ public class ResultadoNormal extends Resultado {
                 carrera,
                 pos,
                 Integer.parseInt(linea[2]),
-                linea[3],
+                corredor,
                 linea[4],
                 Integer.parseInt(linea[5]),
                 Integer.parseInt(linea[6]),

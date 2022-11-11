@@ -13,10 +13,7 @@ import jakarta.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -67,14 +64,16 @@ public class Ej09 {
         //Tratamiento csv
         try (Stream<String> lineas = Files.lines(pathRace).skip(1)){
             List<Carrera> finalAllRaces = allRaces;
-            raceResults = lineas.map(line -> (ResultadoNormal) ResultadoNormal.crearCarrera(line, finalAllRaces)).toList();
+            List<Driver> finalAllDrivers = allDrivers;
+            raceResults = lineas.map(line -> (ResultadoNormal) ResultadoNormal.crearCarrera(line, finalAllRaces, finalAllDrivers)).toList();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
         try (Stream<String> lineas = Files.lines(pathSprint).skip(1)){
-            List<Carrera> finalAllRaces1 = allRaces;
-            sprintResults = lineas.map(line -> (ResultadoSprint) ResultadoSprint.crearCarrera(line, finalAllRaces1)).toList();
+            List<Carrera> finalAllRacesSprint = allRaces;
+            List<Driver> finalAllDrivers1 = allDrivers;
+            sprintResults = lineas.map(line -> (ResultadoSprint) ResultadoSprint.crearCarrera(line, finalAllRacesSprint, finalAllDrivers1)).toList();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -88,7 +87,7 @@ public class Ej09 {
 
         allRacesResults.stream()
                 .collect(Collectors.groupingBy(
-                        p -> Arrays.asList(p.getDriver()),
+                        p -> Arrays.asList(p.getDriver().getDriver()),
                         Collectors.summingDouble(Resultado::getPoints)))
                 .entrySet()
                 .stream()
@@ -116,7 +115,7 @@ public class Ej09 {
         System.out.println("-".repeat(15)+"Piloto con mas Victorias"+"-".repeat(15));
 
         raceResults.stream().filter(d -> d.getPosition() == 1)
-                .collect(Collectors.groupingBy(Resultado::getDriver, Collectors.counting()))
+                .collect(Collectors.groupingBy(resultadoNormal -> resultadoNormal.getDriver().getDriver(), Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new ShowingClass(d.getKey(), d.getValue())).toList()
@@ -139,7 +138,7 @@ public class Ej09 {
         System.out.println("-".repeat(15)+"Piloto con mas Podios"+"-".repeat(15));
 
         raceResults.stream().filter(d -> d.getPosition() >= 1 && d.getPosition() <= 3)
-                .collect(Collectors.groupingBy(Resultado::getDriver, Collectors.counting()))
+                .collect(Collectors.groupingBy(resultadoNormal -> resultadoNormal.getDriver().getDriver(), Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new ShowingClass(d.getKey(), d.getValue())).toList()
@@ -163,7 +162,7 @@ public class Ej09 {
         System.out.println("-".repeat(15)+"Piloto con mas Poles"+"-".repeat(15));
 
         raceResults.stream().filter(d -> d.getStartingGrid() == 1)
-                .collect(Collectors.groupingBy(Resultado::getDriver, Collectors.counting()))
+                .collect(Collectors.groupingBy(resultadoNormal -> resultadoNormal.getDriver().getDriver(), Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new ShowingClass(d.getKey(), d.getValue())).toList()
@@ -188,7 +187,7 @@ public class Ej09 {
         System.out.println("-".repeat(15)+"Piloto con mas Abandonos"+"-".repeat(15));
 
         raceResults.stream().filter(d -> d.getPosition() == Resultado.NC)
-                .collect(Collectors.groupingBy(Resultado::getDriver, Collectors.counting()))
+                .collect(Collectors.groupingBy(resultadoNormal -> resultadoNormal.getDriver().getDriver(), Collectors.counting()))
                 .entrySet()
                 .stream()
                 .map(d -> new ShowingClass(d.getKey(), d.getValue())).toList()
@@ -209,7 +208,7 @@ public class Ej09 {
 
         raceResults.stream().filter(d -> d.getPosition() == 1)
                 .sorted(Comparator.comparingInt(d -> d.getTrack().getRound()))
-                .forEach(p -> System.out.println("Ronda: " + p.getTrack().getRound() + " - Gran premio: " + p.getTrack().getGpName() + " - Ganador: " + p.getDriver()));
+                .forEach(p -> System.out.println("Ronda: " + p.getTrack().getRound() + " - Gran premio: " + p.getTrack().getGpName() + " - Ganador: " + p.getDriver().getDriver()));
 
         System.out.println("-".repeat(15)+"listado del número de grandes premios celebrados por país"+"-".repeat(15));
 
@@ -219,7 +218,38 @@ public class Ej09 {
                 .map(c -> new ShowingClass(c.getKey(), c.getValue()))
                 .forEach(System.out::println);
 
+        //Ejercicios JSON
 
+        System.out.println("-".repeat(15)+"Los pilotos de la competición que son, o han sido, campeones del mundo"+"-".repeat(15));
+
+        allDrivers.stream().filter(f -> f.getWorldChampionships() >= 1).forEach(s -> System.out.println("Pilotos: " +s.getDriver() + " - campeonatos: " + s.getWorldChampionships()));
+
+        System.out.println("-".repeat(15)+"Escuderías con pilotos de su país"+"-".repeat(15));
+
+        List<String> listTeamDriverSameCountry = new ArrayList<>();
+        Map<String, String> hashMapTeamCountry = allTeams.stream().collect(Collectors.toMap(Team::getTeam, Team::getBaseCountry));
+        boolean ok;
+        for (Map.Entry<String, String> e : hashMapTeamCountry.entrySet()) {
+            ok = true;
+            for (int i = 0; i < allDrivers.size() && ok; i++) {
+                if (allDrivers.get(i).getTeam().getTeam().equalsIgnoreCase(e.getKey())) {
+                    if (allDrivers.get(i).getCountry().equalsIgnoreCase(e.getValue())) {
+                        listTeamDriverSameCountry.add(e.getKey());
+                        ok = false;
+                    }
+                }
+            }
+        }
+        listTeamDriverSameCountry.stream().distinct().forEach(System.out::println);
+
+        System.out.println("-".repeat(15)+"Lista de suministradores de motores y a qué escuderías suministran"+"-".repeat(15));
+
+        List<String> listSupplierTeams = allTeams.stream().map(Team::getPowerUnit).distinct().toList();
+        for (String powerUnit : listSupplierTeams) {
+            System.out.print(powerUnit + ": ");
+            allTeams.stream().filter(p -> p.getPowerUnit().equalsIgnoreCase(powerUnit)).forEach(p -> System.out.print(p.getTeam() + ";"));
+            System.out.println();
+        }
 
     }
 
