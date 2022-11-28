@@ -5,10 +5,21 @@ import java.util.Scanner;
 
 public class SQLHandler {
 
-    public static Connection conectarBD(String database) {
+    public static Connection conectarDBSQLITE(String database) {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(database);
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+
+        return connection;
+    }
+
+    public static Connection conectarDBMARIADB(String database, String user, String passwd) {
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(database, user, passwd);
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
@@ -20,7 +31,7 @@ public class SQLHandler {
         PreparedStatement sentence;
 
         try {
-            sentence = connection.prepareStatement(query);
+                sentence = connection.prepareStatement(query);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -40,20 +51,16 @@ public class SQLHandler {
         return resultSet;
     }
 
-    /*public static void showQuery(ResultSet resultSet, String campos) {
-
-        String[] listaCampos = campos.split(",");
+    public static void executeSentence(PreparedStatement sentence) {
         try {
-            while (resultSet.next()){
-                System.out.println(resultSet.getString("name") + "\t" + resultSet.getString("points"));
-            }
+            sentence.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }*/
+    }
 
     public static String insertValues() {
-        StringBuilder select = new StringBuilder("INSERT INTO");
+        StringBuilder select = new StringBuilder("INSERT INTO ");
         Scanner sc = new Scanner(System.in);
         boolean ok;
 
